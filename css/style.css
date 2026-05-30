@@ -1,0 +1,252 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+img {
+  display: block;
+  max-width: 100%;
+  vertical-align: top;
+}
+button {
+  cursor: pointer;
+}
+body {
+  background: #fff;
+  color: #666;
+}
+
+.wrap {
+  width: 100%;
+}
+header {
+  width: 1340px;
+  height: 100px;
+  margin: 0 auto;
+  background: orange;
+  padding: 20px;
+  position: relative;
+}
+nav {
+  position: absolute;
+  top: 56px;
+  right: 10px;
+  z-index: 10;
+}
+nav > ul {
+  display: flex;
+}
+nav > ul > li > a {
+  width: 160px;
+  text-align: center;
+  padding: 10px 0;
+  background: blue;
+  color: #fff;
+}
+nav > ul > li:hover > a,
+nav > ul > li > a:focus,
+nav > ul > li.on > a {
+  background: gray;
+  color: #000;
+}
+.sub {
+  display: none;
+}
+.sub li a {
+  background: #fff;
+  color: #666;
+  text-align: center;
+  padding: 5px 0;
+}
+.sub li a:hover,
+.sub li a:focus,
+.sub li.on a {
+  background: gray;
+  color: #000;
+}
+.slide {
+  width: 100%;
+  height: 350px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.slide a {
+  position: absolute;
+}
+.contents {
+  width: 1340px;
+  margin: 0 auto;
+  position: relative;
+}
+.contents .link {
+  width: 100%;
+  height: 100px;
+  background: orange;
+  position: absolute;
+  top: -100px;
+  left: 0;
+}
+.contents .link ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+.contents .link ul li a:hover {
+  opacity: 0.6;
+}
+.contents .banner {
+  height: 200px;
+  padding: 20px;
+  background: #ccc;
+  color: #000;
+  text-align: center;
+}
+.banner a {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+.banner a:hover {
+  opacity: 0.6;
+}
+.contents .tab {
+  padding: 10px;
+  width: 100%;
+  height: 300px;
+  background: orange;
+  position: relative; /*tabcon의 기준점*/
+}
+.tabmenu {
+  display: flex;
+}
+.tabmenu > li {
+  /*li가 많으니 직계자식에게만 적용할거라서 > 꼭 써야함*/
+  width: 200px;
+  height: 100%;
+  background: #eee;
+  color: #000;
+}
+
+.tabmenu > li.on {
+  background: #369;
+  color: #fff;
+}
+.tabmenu > li > h2 > a {
+  text-align: center;
+  padding: 5px 0;
+}
+
+/* 1. 기본적으로 모든 탭 컨텐츠는 숨겨둡니다 */
+.tabcon {
+  position: absolute; /*tab의 너비가 tabmenu의 너비보다 크기 때문에 기준점을 tab으로 설정*/
+  left: 10px; /* .contents .tab의 padding: 10px;만큼 왼쪽에서 이동 */
+  top: 50px; /* h2 제목 높이만큼 아래로 내리기 */
+  width: 670px;
+  height: 200px;
+  padding: 5px;
+  display: none; /* 일단 안 보이게 숨김 */
+  background: #369;
+  color: #fff;
+}
+/* 2. li에 .on 클래스가 붙은(활성화된) 탭의 컨텐츠만 보여줍니다. */
+.tabmenu li.on .tabcon {
+  display: block; /* 활성화된 탭만 화면에 나타남. 보면서 디자인하기 */
+}
+.notice ul li a {
+  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+.notice ul li a:hover {
+  text-decoration: underline;
+}
+.notice ul li p {
+  width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gall ul {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+.gall ul li img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.gall ul li img:hover {
+  opacity: 0.6;
+}
+
+footer {
+  width: 1340px;
+  height: 120px;
+  background: gray;
+  margin: 0 auto;
+  display: flex;
+  /* justify-content: space-between; 대신 flex-start로 변경하여 왼쪽 정렬 */
+  justify-content: flex-start;
+  align-items: center;
+  /* 로고와 오른쪽 내용 사이의 간격을 와이어프레임처럼 벌려줍니다 */
+  gap: 50px;
+  padding: 0 20px; /* 양옆 여백을 살짝 늘려 안정감을 줍니다 */
+  color: #000;
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+.fmenu {
+  display: flex;
+  /* justify-content: center; 제거하거나 flex-start로 변경 */
+  justify-content: flex-start;
+  gap: 20px; /* 메뉴 글자 사이 간격을 넓혀 가독성을 높입니다 */
+  text-decoration: underline;
+  color: blue;
+}
+.fmenu li a:hover {
+  color: #fff;
+}
+
+.popup {
+  position: fixed; /*상위 부모와 상관없이 오직 브라우저 화면(Viewport) 기준점*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 300px;
+  background: #fff;
+  border: 2px solid #000;
+  padding: 20px;
+  z-index: 100;
+  display: none;
+}
+.popup_inner {
+  text-align: center;
+  align-items: center;
+}
+.popup .close {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+}
